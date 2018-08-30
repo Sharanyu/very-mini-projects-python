@@ -10,7 +10,7 @@ def tax():
      t2.delete(1.0,END)
 
      if sal>0 and sal<=250000:
-        t2.insert(END,"oru aniyum pudungavenam")
+        t2.insert(END,"No need to pay")
      elif sal>250000 and sal<=500000:
          amount=(sal-250000)*(5/100)
          t2.insert(END,"Rs=")
