@@ -1,2 +1,2 @@
 # very-mini-projects-python-
-i love puthon
+i love python
