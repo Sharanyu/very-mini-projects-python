@@ -1,0 +1,44 @@
+from tkinter import *
+import sys
+import os
+
+window=Tk()
+window.wm_title("Income tax calculator")
+
+def tax():
+     sal=int(e1.get())
+     t2.delete(1.0,END)
+
+     if sal>0 and sal<=250000:
+        t2.insert(END,"oru aniyum pudungavenam")
+     elif sal>250000 and sal<=500000:
+         amount=(sal-250000)*(5/100)
+         t2.insert(END,"Rs=")
+         t2.insert(END,amount)
+         e1.delete(0,END)
+     elif sal>500000 and sal<=1000000:
+         amount=(sal-500000)*(20/100)+(250000*(5/100))
+         t2.insert(END,"Rs=")
+         t2.insert(END,amount)
+         e1.delete(0,END)
+     elif sal>1000000:
+         amount=(sal-1000000)*(30/100)+(500000*(20/100))+(250000*(5/100))
+         t2.insert(END,"Rs=")
+         t2.insert(END,amount)
+         e1.delete(0,END)
+     else:
+         t2.insert(text="wait")
+
+b1=Button(window,text="convert",command=tax)
+b1.grid(row=4,column=2)
+
+e1=StringVar()
+e1=Entry(window,textvariable=e1)
+e1.grid(row=0,column=2)
+
+t2=Text(window,height=0,width=100)
+t2.grid(row=10,column=2)
+
+window.mainloop()
+
+input('Press ENTER to exit')
