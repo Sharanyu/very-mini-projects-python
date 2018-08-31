@@ -1,0 +1,61 @@
+from tkinter import *
+import sys
+from forex_python.converter import CurrencyRates
+c=CurrencyRates()
+
+window=Tk()
+window.wm_title("currency to inr converter")
+
+def usd_inr():
+    rate1=c.get_rate('USD','INR')
+    inr=float(e1.get())*rate1
+    t1.insert(END,inr)
+
+def pound_inr():
+    rate2=c.get_rate('GBP','INR')
+    inr=float(e2.get())*rate2
+    t2.insert(END,inr)
+
+def euro_inr():
+    rate3=c.get_rate('EUR','INR')
+    inr=float(e3.get())*rate3
+    t3.insert(END,inr)
+
+
+b1=Button(window,text="USD",command=usd_inr)
+b1.grid(row=0,column=0)
+
+b2=Button(window,text="Pound",command=pound_inr)
+b2.grid(row=1,column=0)
+
+b3=Button(window,text="Euro",command=euro_inr)
+b3.grid(row=2,column=0)
+
+e1=StringVar()
+e1=Entry(window,textvariable=e1)
+e1.grid(row=0,column=1)
+
+e2=StringVar()
+e2=Entry(window,textvariable=e2)
+e2.grid(row=1,column=1)
+
+e3=StringVar()
+e3=Entry(window,textvariable=e3)
+e3.grid(row=2,column=1)
+
+t1=Text(window,height=0,width=20)
+t1.grid(row=0,column=2)
+
+t2=Text(window,height=0,width=20)
+t2.grid(row=1,column=2)
+
+t3=Text(window,height=0,width=20)
+t3.grid(row=2,column=2)
+
+
+
+
+
+
+
+window.mainloop()
